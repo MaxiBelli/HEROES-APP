@@ -1,18 +1,30 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 const CharactersByHero = ({ alter_ego, characters }) => {
-  return alter_ego === characters ? <></> : <p>{characters}</p>;
+  // Check if the alter ego is the same as the characters
+  // If they are the same, return null to not render the component
+  // Otherwise, render a paragraph with the characters
+  return alter_ego === characters ? null : <p>{characters}</p>;
 };
 
 export const HeroCard = ({
-  id,
-  superhero,
-  publisher,
-  alter_ego,
-  first_appearance,
-  characters,
+  hero: { id, superhero, publisher, alter_ego, first_appearance, characters },
+  showPublisher,
 }) => {
   const heroImageUrl = `/assets/heroes/${id}.jpg`;
+
+  let publisherText = "";
+
+  // Check if the publisher should be shown
+  if (showPublisher) {
+    // Assign the appropriate publisher text based on the publisher value
+    if (publisher === "Marvel Comics") {
+      publisherText = "(Marvel)";
+    } else if (publisher === "DC Comics") {
+      publisherText = "(DC)";
+    }
+  }
 
   return (
     <div className="col animate__animated animate__zoomIn">
@@ -24,7 +36,9 @@ export const HeroCard = ({
 
           <div className="col-8">
             <div className="card-body">
-              <h5 className="card-title">{superhero}</h5>
+              <h5 className="card-title">
+                {superhero} {publisherText}
+              </h5>
               <p className="card-text">{alter_ego}</p>
 
               <CharactersByHero characters={characters} alter_ego={alter_ego} />
