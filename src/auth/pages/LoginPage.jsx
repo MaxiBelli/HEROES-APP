@@ -71,7 +71,7 @@ export const LoginPage = () => {
                   {showChangeUser && (
                     <p className="text-center mb-4" onClick={onChangeUser}>
                       <a href="#!" className="text-decoration-none">
-                        Change User
+                        New User
                       </a>
                     </p>
                   )}
