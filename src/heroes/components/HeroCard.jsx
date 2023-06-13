@@ -12,7 +12,7 @@ export const HeroCard = ({
   hero: { id, superhero, publisher, alter_ego, first_appearance, characters },
   showPublisher,
 }) => {
-  const heroImageUrl = `/assets/heroes/${id}.jpg`;
+  const heroImageUrl = `/heroes/${id}.jpg`;
 
   let publisherText = "";
 
