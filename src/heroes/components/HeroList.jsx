@@ -13,7 +13,7 @@ export const HeroList = ({ publisher }) => {
   heroes.sort((a, b) => a.superhero.localeCompare(b.superhero));
 
   return (
-    <div className="row rows-cols-1 row-cols-md-3 g-3">
+    <div className="row rows-cols-1 row-cols-md-3 g-2">
       {heroes.map((hero) => (
         <HeroCard key={hero.id} hero={hero} showPublisher={showPublisher} />
       ))}
